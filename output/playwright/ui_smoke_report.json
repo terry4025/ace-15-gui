@@ -1,0 +1,47 @@
+{
+  "at": "2026-02-13T04:43:04.688Z",
+  "baseUrl": "http://127.0.0.1:4175/#/",
+  "apiBase": "http://127.0.0.1:58758",
+  "screenshots": [
+    "c:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\__.png",
+    "c:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\__home.png",
+    "c:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\__create.png",
+    "c:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\__library.png",
+    "c:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\__edit.png",
+    "c:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\__ops.png",
+    "c:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\__models.png",
+    "c:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\__settings.png",
+    "c:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\create_after_input.png"
+  ],
+  "consoleErrors": [
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+  ],
+  "failedRequests": [
+    {
+      "url": "http://127.0.0.1:8001/health",
+      "method": "GET",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:8001/health",
+      "method": "GET",
+      "failure": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://127.0.0.1:8001/health",
+      "method": "GET",
+      "failure": "net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "url": "http://127.0.0.1:8001/health",
+      "method": "GET",
+      "failure": "net::ERR_CONNECTION_REFUSED"
+    },
+    {
+      "url": "http://127.0.0.1:8001/health",
+      "method": "GET",
+      "failure": "net::ERR_ABORTED"
+    }
+  ]
+}

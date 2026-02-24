@@ -1,0 +1,77 @@
+{
+  "at": "2026-02-13T05:40:00.722Z",
+  "baseUrl": "http://127.0.0.1:56882/#/",
+  "scenarios": [
+    {
+      "id": "s1_8001_empty_dynamic_port",
+      "label": "8001 empty + dynamic port from Tauri",
+      "screenshot": "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\loader_s1_8001_empty_dynamic_port.png",
+      "reachedHome": true,
+      "finalUrl": "http://127.0.0.1:56882/#/home",
+      "finalBase": "http://127.0.0.1:39111",
+      "healthCalls": 0,
+      "routed": 4,
+      "aborted": 2,
+      "continued": 24,
+      "consoleErrors": [
+        "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "ok": true,
+      "detail": "nav=true; base=http://127.0.0.1:39111"
+    },
+    {
+      "id": "s2_8001_occupied_healthy_backend",
+      "label": "8001 occupied + healthy backend",
+      "screenshot": "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\loader_s2_8001_occupied_healthy_backend.png",
+      "reachedHome": true,
+      "finalUrl": "http://127.0.0.1:56882/#/home",
+      "finalBase": "http://127.0.0.1:8001",
+      "healthCalls": 0,
+      "routed": 5,
+      "aborted": 1,
+      "continued": 24,
+      "consoleErrors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "ok": true,
+      "detail": "nav=true; base=http://127.0.0.1:8001"
+    },
+    {
+      "id": "s3_stale_localstorage_port",
+      "label": "stale localStorage port -> fallback to 8001",
+      "screenshot": "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\loader_s3_stale_localstorage_port.png",
+      "reachedHome": true,
+      "finalUrl": "http://127.0.0.1:56882/#/home",
+      "finalBase": "http://127.0.0.1:8001",
+      "healthCalls": 0,
+      "routed": 7,
+      "aborted": 3,
+      "continued": 24,
+      "consoleErrors": [
+        "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+        "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "ok": true,
+      "detail": "nav=true; base=http://127.0.0.1:8001"
+    },
+    {
+      "id": "s4_initialization_delay",
+      "label": "initialization delay then ready",
+      "screenshot": "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\loader_s4_initialization_delay.png",
+      "reachedHome": true,
+      "finalUrl": "http://127.0.0.1:56882/#/home",
+      "finalBase": "http://127.0.0.1:8001",
+      "healthCalls": 3,
+      "routed": 6,
+      "aborted": 1,
+      "continued": 24,
+      "consoleErrors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "ok": true,
+      "detail": "nav=true; base=http://127.0.0.1:8001, healthCalls=3"
+    }
+  ]
+}

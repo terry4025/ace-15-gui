@@ -1,0 +1,104 @@
+{
+  "at": "2026-02-13T05:39:56.444946+00:00",
+  "base": "http://127.0.0.1:8001",
+  "timeout": 30.0,
+  "skip_release_task": false,
+  "allow_known_format_input_failure": true,
+  "total": 13,
+  "pass": 11,
+  "skip": 2,
+  "fail": 0,
+  "steps": [
+    {
+      "name": "GET /health",
+      "ok": true,
+      "skipped": false,
+      "status": "PASS",
+      "detail": "{'status': 'ok', 'service': 'ACE-Step API', 'version': '1.0', 'models_initialized': True, 'models_stage': 'ready', 'llm_initialized': True, 'llm_lazy_load_disabled': False, 'init_error': None, 'llm_init_error': None, 'gpu_memory_gb': 23.999"
+    },
+    {
+      "name": "GET /v1/app-config",
+      "ok": true,
+      "skipped": false,
+      "status": "PASS",
+      "detail": "{'config': {'version': 1, 'output_dir': 'C:\\\\Users\\\\Administrator\\\\Music\\\\ACE-Step Studio', 'bind_mode': 'local', 'api_key': '', 'dit_model': 'acestep-v15-turbo', 'lm_model': 'acestep-5Hz-lm-4B', 'lm_backend': 'pt', 'download_source': 'auto"
+    },
+    {
+      "name": "GET /v1/library",
+      "ok": true,
+      "skipped": false,
+      "status": "PASS",
+      "detail": "34 tracks"
+    },
+    {
+      "name": "GET /v1/stats",
+      "ok": true,
+      "skipped": false,
+      "status": "PASS",
+      "detail": "{'jobs': {'total': 75, 'queued': 0, 'running': 0, 'succeeded': 16, 'failed': 54}, 'queue_size': 0, 'queue_maxsize': 200, 'avg_job_seconds': 0.010979418754577636}"
+    },
+    {
+      "name": "GET /v1/models",
+      "ok": true,
+      "skipped": false,
+      "status": "PASS",
+      "detail": "{'object': 'list', 'data': [{'id': 'acestep/acestep-v15-turbo', 'name': 'ACE-Step acestep-v15-turbo', 'created': 1768369194, 'input_modalities': ['text', 'audio'], 'output_modalities': ['audio', 'text'], 'context_length': 4096, 'max_output_"
+    },
+    {
+      "name": "POST /create_random_sample",
+      "ok": true,
+      "skipped": false,
+      "status": "PASS",
+      "detail": "{'description': 'groovy funk jam with slap bass and wah-wah guitar riffs', 'instrumental': False, 'vocal_language': 'en'}"
+    },
+    {
+      "name": "POST /format_input",
+      "ok": true,
+      "skipped": true,
+      "status": "SKIP",
+      "detail": "SKIP"
+    },
+    {
+      "name": "POST /v1/app-config",
+      "ok": true,
+      "skipped": true,
+      "status": "SKIP",
+      "detail": "SKIP"
+    },
+    {
+      "name": "GET /v1/audio",
+      "ok": true,
+      "skipped": false,
+      "status": "PASS",
+      "detail": "200 audio/mpeg"
+    },
+    {
+      "name": "POST /release_task",
+      "ok": true,
+      "skipped": false,
+      "status": "PASS",
+      "detail": "{'task_id': 'ff138adc-74a4-4c87-8be8-8f00e3579e80', 'status': 'queued', 'queue_position': 1}"
+    },
+    {
+      "name": "POST /query_result",
+      "ok": true,
+      "skipped": false,
+      "status": "PASS",
+      "detail": "[{'task_id': 'ff138adc-74a4-4c87-8be8-8f00e3579e80', 'result': '[{\"file\": \"\", \"wave\": \"\", \"status\": 0, \"create_time\": 1770961194, \"env\": \"development\", \"progress\": 0.01, \"stage\": \"running\"}]', 'status': 0, 'progress_text': '14:39:54 | INFO "
+    },
+    {
+      "name": "POST /v1/tasks/{task_id}/cancel",
+      "ok": true,
+      "skipped": false,
+      "status": "PASS",
+      "detail": "{'ok': True}"
+    },
+    {
+      "name": "POST /query_result (after cancel)",
+      "ok": true,
+      "skipped": false,
+      "status": "PASS",
+      "detail": "[{'task_id': 'ff138adc-74a4-4c87-8be8-8f00e3579e80', 'result': '[{\"file\": \"\", \"wave\": \"\", \"status\": 2, \"create_time\": 1770961194, \"env\": \"development\", \"progress\": 0.0, \"stage\": \"failed\"}]', 'status': 2, 'progress_text': '14:39:54 | ERROR |"
+    }
+  ]
+}

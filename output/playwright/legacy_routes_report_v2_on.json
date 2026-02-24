@@ -1,0 +1,85 @@
+{
+  "at": "2026-02-13T10:59:13.546Z",
+  "baseUrl": "http://127.0.0.1:50750/#/",
+  "expectedV2": true,
+  "routeChecks": [
+    {
+      "hash": "#/",
+      "url": "http://127.0.0.1:50750/#/",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "hash": "#/home",
+      "url": "http://127.0.0.1:50750/#/home",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "hash": "#/compose",
+      "url": "http://127.0.0.1:50750/#/compose",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "hash": "#/create",
+      "url": "http://127.0.0.1:50750/#/create",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "hash": "#/edit",
+      "url": "http://127.0.0.1:50750/#/edit",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "hash": "#/library",
+      "url": "http://127.0.0.1:50750/#/library",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "hash": "#/settings",
+      "url": "http://127.0.0.1:50750/#/settings",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "hash": "#/updates",
+      "url": "http://127.0.0.1:50750/#/updates",
+      "ok": true,
+      "detail": "ok"
+    }
+  ],
+  "navCheck": {
+    "expectedV2": true,
+    "hasOps": true,
+    "hasModels": true,
+    "ok": true,
+    "detail": "expected ops=true, models=true; got ops=true, models=true"
+  },
+  "consoleErrors": [
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+  ],
+  "screenshots": [
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\legacy_route___.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\legacy_route___home.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\legacy_route___compose.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\legacy_route___create.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\legacy_route___edit.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\legacy_route___library.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\legacy_route___settings.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\output\\playwright\\legacy_route___updates.png"
+  ]
+}

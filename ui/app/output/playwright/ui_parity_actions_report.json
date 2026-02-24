@@ -1,0 +1,63 @@
+{
+  "at": "2026-02-13T05:18:36.389Z",
+  "baseUrl": "http://127.0.0.1:62890/#/",
+  "apiBase": "http://127.0.0.1:8001",
+  "audioPath": "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\outputs\\smoke\\8bd0d3a1-63a2-4247-8e39-665b69edd1c1.wav",
+  "screenshots": [
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\ui\\app\\output\\playwright\\parity_loader.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\ui\\app\\output\\playwright\\parity_home.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\ui\\app\\output\\playwright\\parity_ops.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\ui\\app\\output\\playwright\\parity_models.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\ui\\app\\output\\playwright\\parity_settings_before_save.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\ui\\app\\output\\playwright\\parity_settings_after_save.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\ui\\app\\output\\playwright\\parity_create_start.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\ui\\app\\output\\playwright\\parity_create_after_actions.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\ui\\app\\output\\playwright\\parity_library.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\ui\\app\\output\\playwright\\parity_edit_cover.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\ui\\app\\output\\playwright\\parity_edit_repaint.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\ui\\app\\output\\playwright\\parity_edit_extract.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\ui\\app\\output\\playwright\\parity_edit_lego.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\ui\\app\\output\\playwright\\parity_edit_complete.png",
+    "C:\\Users\\Administrator\\Downloads\\ACE-Step-1.5-main\\ui\\app\\output\\playwright\\parity_edit_after_actions.png"
+  ],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 422 (Unprocessable Entity)"
+  ],
+  "requestsTotal": 36,
+  "responsesTotal": 35,
+  "hitCounts": {
+    "GET /health": 7,
+    "GET /v1/app-config": 7,
+    "GET /v1/library": 2,
+    "GET /v1/stats": 1,
+    "GET /v1/models": 1,
+    "POST /v1/app-config": 1,
+    "POST /format_input": 1,
+    "POST /create_random_sample": 1,
+    "POST /release_task": 6,
+    "POST /query_result": 6,
+    "GET /v1/audio": 2,
+    "POST /v1/tasks/{task_id}/cancel": 1
+  },
+  "missingCore": [],
+  "missingEditTasks": [],
+  "createHasAdvanced": true,
+  "extractHasTrackName": true,
+  "legoHasTrackName": true,
+  "completeHasClasses": true,
+  "releaseTaskTypesSeen": [
+    "create",
+    "cover",
+    "repaint",
+    "extract",
+    "lego",
+    "complete"
+  ],
+  "submittedEditTasks": [
+    "cover",
+    "repaint",
+    "extract",
+    "lego",
+    "complete"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "ace-step-studio-ui",
+  "private": true,
+  "version": "0.2.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "smoke:ui": "node ..\\..\\scripts\\ui_smoke_playwright.mjs",
+    "smoke:loader": "node ..\\..\\scripts\\loader_recovery_playwright.mjs",
+    "smoke:ui:actions": "node ..\\..\\scripts\\ui_parity_actions_playwright.mjs",
+    "smoke:legacy-routes": "node ..\\..\\scripts\\legacy_routes_playwright.mjs",
+    "smoke:api": "..\\..\\.venv\\Scripts\\python.exe ..\\..\\scripts\\smoke_api_parity.py",
+    "phase3:gate": "powershell -ExecutionPolicy Bypass -File ..\\..\\scripts\\run_phase3_gate.ps1"
+  },
+  "dependencies": {
+    "@fontsource-variable/space-grotesk": "^5.2.6",
+    "@fontsource/noto-sans-kr": "^5.2.6",
+    "i18next": "^23.16.8",
+    "lucide-react": "^0.542.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^15.1.3",
+    "react-router-dom": "^6.30.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "playwright": "^1.56.1",
+    "typescript": "^5.7.3",
+    "vite": "^5.4.14"
+  }
+}
