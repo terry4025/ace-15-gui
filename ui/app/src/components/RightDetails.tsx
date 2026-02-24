@@ -2,6 +2,7 @@ import React from "react";
 import { Play, X, Download, Copy, Music2 } from "lucide-react";
 import TagPill from "./TagPill";
 import type { LibraryTrack } from "../types";
+import { hashColor, formatDuration, extractTags, extractLyrics } from "../lib/trackUtils";
 
 type RightDetailsProps = {
     track: LibraryTrack | null;
@@ -9,42 +10,6 @@ type RightDetailsProps = {
     onPlay: (track: LibraryTrack) => void;
     apiBase: string;
 };
-
-function hashColor(id: string): string {
-    let hash = 0;
-    for (let i = 0; i < id.length; i++) {
-        hash = id.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    const h = Math.abs(hash) % 360;
-    return `hsl(${h}, 60%, 35%)`;
-}
-
-function formatDuration(meta: Record<string, any>): string {
-    const dur = meta?.audio_duration || meta?.duration;
-    if (typeof dur === "number" && Number.isFinite(dur)) {
-        const m = Math.floor(dur / 60);
-        const s = Math.floor(dur % 60);
-        return `${m}:${s.toString().padStart(2, "0")}`;
-    }
-    return "--:--";
-}
-
-function extractTags(track: LibraryTrack): string[] {
-    const meta = track.meta || {};
-    const prompt = String(meta.prompt_final || meta.metas?.caption || meta.prompt || "");
-    // Split by commas to extract genre tags
-    return prompt
-        .split(/,\s*/)
-        .map((t: string) => t.trim())
-        .filter((t: string) => t.length > 0 && t.length < 40)
-        .slice(0, 8);
-}
-
-function extractLyrics(track: LibraryTrack): string {
-    const meta = track.meta || {};
-    const lyrics = meta.lyrics || meta.metas?.lyrics || "";
-    return String(lyrics).trim();
-}
 
 export default function RightDetails({ track, onClose, onPlay, apiBase }: RightDetailsProps) {
     if (!track) {
@@ -79,7 +44,7 @@ export default function RightDetails({ track, onClose, onPlay, apiBase }: RightD
     const duration = formatDuration(meta);
     const tags = extractTags(track);
     const lyrics = extractLyrics(track);
-    const coverBg = hashColor(track.track_id);
+    const coverBg = hashColor(track.track_id, 35);
     const date = track.created_at
         ? new Date(track.created_at * 1000).toLocaleDateString()
         : "";
@@ -126,8 +91,6 @@ export default function RightDetails({ track, onClose, onPlay, apiBase }: RightD
                         </div>
                     </div>
                 </div>
-
-                {/* Audio Player Removed to only use bottom player */}
 
                 {/* Actions */}
                 <div className="details-actions-row">

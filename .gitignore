@@ -242,3 +242,38 @@ proxy_config.txt
 gradio_outputs/
 acestep/third_parts/vllm/
 test_lora_scale_fix.py
+
+# Tauri build artifacts & bundled Python
+desktop/src-tauri/target/
+desktop/src-tauri/resources/offline/
+desktop/build.log
+desktop/build2.log
+desktop/tauri-build.log
+
+# Logs & runtime outputs
+logs/
+output/
+outputs/
+
+# Node modules (all levels)
+node_modules/
+
+# UI build output
+ui/app/dist/
+
+# Python __pycache__
+__pycache__/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Claude / Gemini agent files
+.claude/
+.gemini/

@@ -1,50 +1,13 @@
 import React from "react";
 import { Play, Clock, Music2 } from "lucide-react";
 import type { LibraryTrack } from "../types";
+import { hashColor, formatDuration, extractPrompt, formatDate } from "../lib/trackUtils";
 
 interface SongListItemProps {
     track: LibraryTrack;
     isActive: boolean;
     onClick: () => void;
     onPlay: () => void;
-}
-
-function formatDuration(meta: Record<string, any>): string {
-    const dur = meta?.audio_duration || meta?.duration;
-    if (typeof dur === "number" && Number.isFinite(dur)) {
-        const m = Math.floor(dur / 60);
-        const s = Math.floor(dur % 60);
-        return `${m}:${s.toString().padStart(2, "0")}`;
-    }
-    return "--:--";
-}
-
-function extractPrompt(track: LibraryTrack): string {
-    const meta = track.meta || {};
-    return String(
-        meta.prompt_final || meta.metas?.caption || meta.prompt || track.track_id
-    ).slice(0, 120);
-}
-
-function extractStyle(track: LibraryTrack): string {
-    const meta = track.meta || {};
-    const prompt = String(meta.prompt_final || meta.metas?.caption || meta.prompt || "");
-    return prompt.slice(0, 80);
-}
-
-function formatDate(ts: number): string {
-    if (!ts) return "";
-    return new Date(ts * 1000).toLocaleDateString();
-}
-
-// 색상 계산 (track_id에서 해시)
-function hashColor(id: string): string {
-    let hash = 0;
-    for (let i = 0; i < id.length; i++) {
-        hash = id.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    const h = Math.abs(hash) % 360;
-    return `hsl(${h}, 60%, 40%)`;
 }
 
 export default function SongListItem({ track, isActive, onClick, onPlay }: SongListItemProps) {
@@ -95,7 +58,7 @@ export default function SongListItem({ track, isActive, onClick, onPlay }: SongL
                 </div>
                 <div className="song-meta">
                     <Music2 size={11} style={{ opacity: 0.5 }} />
-                    <span>{extractStyle(track)}</span>
+                    <span>{extractPrompt(track, 80)}</span>
                 </div>
             </div>
 

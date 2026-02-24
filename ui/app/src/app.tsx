@@ -19,6 +19,8 @@ import MainFeed from "./components/MainFeed";
 import RightDetails from "./components/RightDetails";
 import BottomPlayer from "./components/BottomPlayer";
 
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
 export function App() {
   const { t, i18n } = useTranslation();
   const nav = useNavigate();
@@ -42,10 +44,6 @@ export function App() {
 
   // 설정 팝업 상태
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-
-  function sleep(ms: number) {
-    return new Promise((r) => setTimeout(r, ms));
-  }
 
   // --- 라이브러리 새로고침 ---
   const refreshLibrary = useCallback(async () => {
@@ -125,7 +123,7 @@ export function App() {
   // --- Tauri/API base URL 싱크 ---
   useEffect(() => {
     (async () => {
-      const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
       const healthAt = async (baseUrl: string, timeoutMs: number) => {
         try {
           const ctrl = new AbortController();
