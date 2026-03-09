@@ -6,6 +6,7 @@ import json
 import os
 import random
 import time
+import asyncio
 from typing import Any, Dict, List, Optional
 from uuid import uuid4
 
@@ -90,7 +91,7 @@ try:
     import diskcache
     _cache_dir = os.path.join(os.path.dirname(__file__), ".cache", "api_results")
     os.makedirs(_cache_dir, exist_ok=True)
-    _result_cache = diskcache.Cache(_cache_dir)
+    _result_cache = diskcache.Cache(_cache_dir, size_limit=1024 * 1024 * 1024)
     DISKCACHE_AVAILABLE = True
 except ImportError:
     _result_cache = {}
@@ -309,7 +310,8 @@ async def format_input(request: Request, authorization: Optional[str] = Header(N
     from acestep.inference import format_sample
 
     try:
-        result = format_sample(
+        result = await asyncio.to_thread(
+            format_sample,
             llm_handler=llm_handler,
             caption=caption,
             lyrics=lyrics,
@@ -399,7 +401,8 @@ async def release_task(request: Request, authorization: Optional[str] = Header(N
                 raise HTTPException(status_code=500, detail="sample_mode requires LLM to be initialized")
 
             query = sample_query if has_sample_query else "NO USER INPUT"
-            sample_result = create_sample(
+            sample_result = await asyncio.to_thread(
+                create_sample,
                 llm_handler=llm_handler,
                 query=query,
                 vocal_language=vocal_language if vocal_language not in ("en", "unknown", "") else None,
@@ -428,7 +431,8 @@ async def release_task(request: Request, authorization: Optional[str] = Header(N
         # Process use_format: enhance caption/lyrics via LLM
         if use_format and not sample_mode and not has_sample_query:
             if llm_handler and llm_handler.llm_initialized:
-                format_result = format_sample(
+                format_result = await asyncio.to_thread(
+            format_sample,
                     llm_handler=llm_handler,
                     caption=caption,
                     lyrics=lyrics,
@@ -478,7 +482,8 @@ async def release_task(request: Request, authorization: Optional[str] = Header(N
         os.makedirs(save_dir, exist_ok=True)
 
         # Call generation function
-        result = generate_music(
+        result = await asyncio.to_thread(
+            generate_music,
             dit_handler=dit_handler,
             llm_handler=llm_handler if llm_handler and llm_handler.llm_initialized else None,
             params=params,

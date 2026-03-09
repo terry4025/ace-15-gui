@@ -83,7 +83,7 @@ def create_training_section(dit_handler, llm_handler, init_params=None) -> dict:
                 gr.HTML("<hr>")
                 
                 with gr.Row():
-                    with gr.Column(scale=2):
+                    with gr.Column(scale=2, min_width=320):
                         
                         # Audio files table
                         audio_files_table = gr.Dataframe(
@@ -152,7 +152,7 @@ def create_training_section(dit_handler, llm_handler, init_params=None) -> dict:
                 gr.HTML(f"<hr><h3>🤖 {t('training.step2_title')}</h3>")
                 
                 with gr.Row():
-                    with gr.Column(scale=3):
+                    with gr.Column(scale=3, min_width=320):
                         gr.Markdown("""
                         Click the button below to automatically generate metadata for all audio files using AI:
                         - **Caption**: Music style, genre, mood description
@@ -207,7 +207,7 @@ def create_training_section(dit_handler, llm_handler, init_params=None) -> dict:
                             interactive=False,
                         )
 
-                    with gr.Column(scale=2):
+                    with gr.Column(scale=2, min_width=320):
                         with gr.Row():
                             edit_caption = gr.Textbox(
                                 label=t("training.caption"),
@@ -282,7 +282,7 @@ def create_training_section(dit_handler, llm_handler, init_params=None) -> dict:
                 gr.HTML(f"<hr><h3>💾 {t('training.step4_title')}</h3>")
                 
                 with gr.Row():
-                    with gr.Column(scale=3):
+                    with gr.Column(scale=3, min_width=320):
                         save_path = gr.Textbox(
                             label=t("training.save_path"),
                             value="./datasets/my_lora_dataset.json",
@@ -313,7 +313,7 @@ def create_training_section(dit_handler, llm_handler, init_params=None) -> dict:
                 """)
                 
                 with gr.Row():
-                    with gr.Column(scale=3):
+                    with gr.Column(scale=3, min_width=320):
                         load_existing_dataset_path = gr.Textbox(
                             label=t("training.load_existing_label"),
                             placeholder="./datasets/my_lora_dataset.json",
@@ -342,7 +342,7 @@ def create_training_section(dit_handler, llm_handler, init_params=None) -> dict:
                 """)
                 
                 with gr.Row():
-                    with gr.Column(scale=3):
+                    with gr.Column(scale=3, min_width=320):
                         preprocess_output_dir = gr.Textbox(
                             label=t("training.tensor_output_dir"),
                             value="./datasets/preprocessed_tensors",
@@ -365,7 +365,7 @@ def create_training_section(dit_handler, llm_handler, init_params=None) -> dict:
             # ==================== Training Tab ====================
             with gr.Tab(t("training.tab_train_lora")):
                 with gr.Row():
-                    with gr.Column(scale=2):
+                    with gr.Column(scale=2, min_width=320):
                         gr.HTML(f"<h3>📊 {t('training.train_section_tensors')}</h3>")
                         
                         gr.Markdown("""

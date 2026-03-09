@@ -227,7 +227,7 @@ def create_generation_section(dit_handler, llm_handler, init_params=None, langua
         
         # Inputs
         with gr.Row():
-            with gr.Column(scale=2):
+            with gr.Column(scale=2, min_width=320):
                 with gr.Accordion(t("generation.required_inputs"), open=True):
                     # Task type
                     # Determine initial task_type choices based on actual model in use
@@ -240,7 +240,7 @@ def create_generation_section(dit_handler, llm_handler, init_params=None, langua
                         initial_task_choices = TASK_TYPES_BASE
                     
                     with gr.Row(equal_height=True):
-                        with gr.Column(scale=2):
+                        with gr.Column(scale=2, min_width=320):
                             task_type = gr.Dropdown(
                                 choices=initial_task_choices,
                                 value="text2music",
@@ -283,7 +283,7 @@ def create_generation_section(dit_handler, llm_handler, init_params=None, langua
                     audio_uploads_accordion = gr.Accordion(t("generation.audio_uploads"), open=False)
                     with audio_uploads_accordion:
                         with gr.Row(equal_height=True):
-                            with gr.Column(scale=2):
+                            with gr.Column(scale=2, min_width=320):
                                 reference_audio = gr.Audio(
                                     label=t("generation.reference_audio"),
                                     type="filepath",
@@ -371,7 +371,7 @@ def create_generation_section(dit_handler, llm_handler, init_params=None, langua
                                     label=t("generation.instrumental_label"),
                                     value=False,
                                 )
-                            with gr.Column(scale=18):
+                            with gr.Column(scale=18, min_width=200):
                                 create_sample_btn = gr.Button(
                                     t("generation.create_sample_btn"),
                                     variant="primary",
@@ -449,7 +449,7 @@ def create_generation_section(dit_handler, llm_handler, init_params=None, langua
                 
                 # Optional Parameters
                 # In service mode: auto-expand
-                with gr.Accordion(t("generation.optional_params"), open=service_mode) as optional_params_accordion:
+                with gr.Accordion(t("generation.optional_params"), open=False) as optional_params_accordion:
                     with gr.Row():
                         bpm = gr.Number(
                             label=t("generation.bpm_label"),
@@ -710,7 +710,7 @@ def create_generation_section(dit_handler, llm_handler, init_params=None, langua
                     value=True,
                     scale=1,
                 )
-            with gr.Column(scale=18):
+            with gr.Column(scale=18, min_width=200):
                 generate_btn = gr.Button(t("generation.generate_btn"), variant="primary", size="lg", interactive=generate_btn_interactive)
             with gr.Column(scale=1, variant="compact"):
                 autogen_checkbox = gr.Checkbox(
