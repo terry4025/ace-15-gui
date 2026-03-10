@@ -638,7 +638,12 @@ def create_app() -> FastAPI:
             raise HTTPException(status_code=503, detail="Model not initialized")
 
         # Extract prompt, lyrics, sample_query, and audio paths from messages
-        prompt, lyrics_from_msg, sample_query, audio_paths = _extract_prompt_and_lyrics(request.messages)
+        # Offload to thread pool because it may contain synchronous disk writes (_base64_to_temp_file)
+        loop = asyncio.get_running_loop()
+        prompt, lyrics_from_msg, sample_query, audio_paths = await loop.run_in_executor(
+            app.state.executor,
+            functools.partial(_extract_prompt_and_lyrics, request.messages)
+        )
 
         # When lyrics or sample_mode is explicitly provided, the message text role
         # is already known — skip auto-detection results.
@@ -966,7 +971,10 @@ def create_app() -> FastAPI:
                 # Send audio data
                 audio_path = audio_result.get("audio_path")
                 if audio_path and os.path.exists(audio_path):
-                    b64_url = _audio_to_base64_url(audio_path, "mp3")
+                    b64_url = await loop.run_in_executor(
+                        executor,
+                        functools.partial(_audio_to_base64_url, audio_path, "mp3")
+                    )
                     if b64_url:
                         audio_list = [
                             AudioOutputItem(
@@ -1023,7 +1031,10 @@ def create_app() -> FastAPI:
         audio_list = None
         audio_path = result.get("audio_path")
         if audio_path and os.path.exists(audio_path):
-            b64_url = _audio_to_base64_url(audio_path, "mp3")
+            b64_url = await loop.run_in_executor(
+                app.state.executor,
+                functools.partial(_audio_to_base64_url, audio_path, "mp3")
+            )
             if b64_url:
                 audio_list = [
                     AudioOutputItem(
